@@ -25,6 +25,10 @@ public class Frequency implements Serializable {
 
 	private Time output;
 
+	//bi-directional many-to-one association to Flight
+	@OneToMany(mappedBy="frequency")
+	private Set<Flight> flights;
+
 	//bi-directional one-to-one association to Aircraft
 	@OneToOne
 	@JoinColumn(name="aircraft_id")
@@ -34,10 +38,6 @@ public class Frequency implements Serializable {
     @ManyToOne
 	@JoinColumn(name="route_id")
 	private Route route;
-
-	//bi-directional many-to-one association to Flight
-	@OneToMany(mappedBy="frequency")
-	private Set<Flight> flights;
 
     public Frequency() {
     }
@@ -74,6 +74,14 @@ public class Frequency implements Serializable {
 		this.output = output;
 	}
 
+	public Set<Flight> getFlights() {
+		return this.flights;
+	}
+
+	public void setFlights(Set<Flight> flights) {
+		this.flights = flights;
+	}
+	
 	public Aircraft getAircraft() {
 		return this.aircraft;
 	}
@@ -88,14 +96,6 @@ public class Frequency implements Serializable {
 
 	public void setRoute(Route route) {
 		this.route = route;
-	}
-	
-	public Set<Flight> getFlights() {
-		return this.flights;
-	}
-
-	public void setFlights(Set<Flight> flights) {
-		this.flights = flights;
 	}
 	
 }

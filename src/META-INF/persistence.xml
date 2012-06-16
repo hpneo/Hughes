@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="Flights">
+	<persistence-unit name="Flights" transaction-type="RESOURCE_LOCAL">
+	  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+	  
 		<class>com.hughes.models.Aircraft</class>
 		<class>com.hughes.models.Destination</class>
 		<class>com.hughes.models.Origin</class>
 		<class>com.hughes.models.Route</class>
 		<class>com.hughes.models.Frequency</class>
 		<class>com.hughes.models.Flight</class>
+		<class>com.hughes.models.Booking</class>
+		<class>com.hughes.models.User</class>
+  
+	  <properties>
+	      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/flights" />
+	      <property name="javax.persistence.jdbc.user" value="root" />
+	      <property name="javax.persistence.jdbc.password" value="" />
+	      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/> 
+	  </properties>
 	</persistence-unit>
 </persistence>
