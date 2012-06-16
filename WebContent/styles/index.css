@@ -1,0 +1,11 @@
+#map {
+	display: block;
+	width: 100%;
+	height: 340px;
+	background: #b6d0fa;
+	border-radius: 3px;
+}
+
+#user_links {
+	border-left: solid 1px #c6d0e1;
+}
