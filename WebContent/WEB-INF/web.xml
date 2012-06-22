@@ -62,4 +62,14 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Find available flights according searching parameters</description>
+    <display-name>FlightServlet</display-name>
+    <servlet-name>FlightServlet</servlet-name>
+    <servlet-class>com.hughes.servlets.FlightServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FlightServlet</servlet-name>
+    <url-pattern>/flights</url-pattern>
+  </servlet-mapping>
 </web-app>
