@@ -3,10 +3,10 @@ package com.hughes.servlets;
 import java.io.IOException;
 
 import com.hughes.beans.*;
+import com.hughes.models.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.text.*;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +39,7 @@ public class FlightServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  SimpleDateFormat date_format = new SimpleDateFormat("dd-MM-yyyy");
+	  SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy");
 	  
 	  String flight_type = request.getParameter("flight_type");
 	  Date output_date = new Date();
@@ -62,7 +62,10 @@ public class FlightServlet extends HttpServlet {
 	  
 	  Integer passages_count = adult_passages_count + child_passages_count;
 	  
-	  FlightBean.search(flight_type, origin_id, destination_id, output_date, arrival_date, flight_class, passages_count);
+	  Flight[] results = FlightBean.search(flight_type, origin_id, destination_id, output_date, arrival_date, flight_class, passages_count).toArray(new Flight[0]);
+	  
+	  
+	  System.out.println(results.length);
 	}
 
 }

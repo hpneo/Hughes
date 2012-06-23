@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
 	<entity>
-		<entity-name>com.hughes.models.User</entity-name>
+		<entity-name>com.hughes.models.Route</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>226</entity-height>
-		<entity-X-Coordinate>494</entity-X-Coordinate>
-		<entity-Y-Coordinate>611</entity-Y-Coordinate>
+		<entity-height>148</entity-height>
+		<entity-X-Coordinate>50</entity-X-Coordinate>
+		<entity-Y-Coordinate>316</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
 	</entity>
 
 	<entity>
-		<entity-name>com.hughes.models.Route</entity-name>
+		<entity-name>com.hughes.models.User</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>148</entity-height>
-		<entity-X-Coordinate>50</entity-X-Coordinate>
-		<entity-Y-Coordinate>316</entity-Y-Coordinate>
+		<entity-height>226</entity-height>
+		<entity-X-Coordinate>494</entity-X-Coordinate>
+		<entity-Y-Coordinate>611</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -79,9 +79,9 @@
 	<entity>
 		<entity-name>com.hughes.models.Flight</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>206</entity-height>
+		<entity-height>246</entity-height>
 		<entity-X-Coordinate>270</entity-X-Coordinate>
-		<entity-Y-Coordinate>444</entity-Y-Coordinate>
+		<entity-Y-Coordinate>410</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

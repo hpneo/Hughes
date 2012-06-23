@@ -1,7 +1,7 @@
 package com.hughes.beans;
 
+import java.util.*;
 import javax.persistence.*;
-import java.util.List;
 
 import com.hughes.models.*;
 
@@ -15,7 +15,7 @@ public class OriginBean {
 	  factory = Persistence.createEntityManagerFactory("Flights");
 	  entity_manager = factory.createEntityManager();
 	  
-	  return (List<Origin>)entity_manager.createQuery("SELECT o FROM Origin o").getResultList();
+	  return (List<Origin>) entity_manager.createQuery("SELECT o FROM Origin o").getResultList();
 	}
 	
 }

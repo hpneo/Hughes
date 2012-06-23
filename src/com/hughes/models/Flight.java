@@ -20,7 +20,13 @@ public class Flight implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
+	@Column(name="available_seats")
+	private int availableSeats;
+
 	private String code;
+
+	@Column(name="flight_class")
+	private String flightClass;
 
     @Temporal( TemporalType.DATE)
 	@Column(name="output_date")
@@ -28,14 +34,14 @@ public class Flight implements Serializable {
 
 	private BigDecimal price;
 
+	//bi-directional many-to-one association to Booking
+	@OneToMany(mappedBy="flight")
+	private Set<Booking> bookings;
+
 	//bi-directional many-to-one association to Frequency
     @ManyToOne
 	@JoinColumn(name="frequency_id")
 	private Frequency frequency;
-
-	//bi-directional many-to-one association to Booking
-	@OneToMany(mappedBy="flight")
-	private Set<Booking> bookings;
 
     public Flight() {
     }
@@ -48,12 +54,28 @@ public class Flight implements Serializable {
 		this.id = id;
 	}
 
+	public int getAvailableSeats() {
+		return this.availableSeats;
+	}
+
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
+
 	public String getCode() {
 		return this.code;
 	}
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getFlightClass() {
+		return this.flightClass;
+	}
+
+	public void setFlightClass(String flightClass) {
+		this.flightClass = flightClass;
 	}
 
 	public Date getOutputDate() {
@@ -72,20 +94,20 @@ public class Flight implements Serializable {
 		this.price = price;
 	}
 
-	public Frequency getFrequency() {
-		return this.frequency;
-	}
-
-	public void setFrequency(Frequency frequency) {
-		this.frequency = frequency;
-	}
-	
 	public Set<Booking> getBookings() {
 		return this.bookings;
 	}
 
 	public void setBookings(Set<Booking> bookings) {
 		this.bookings = bookings;
+	}
+	
+	public Frequency getFrequency() {
+		return this.frequency;
+	}
+
+	public void setFrequency(Frequency frequency) {
+		this.frequency = frequency;
 	}
 	
 }

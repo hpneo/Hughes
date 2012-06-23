@@ -29,7 +29,7 @@ public class Route implements Serializable {
 
 	//bi-directional many-to-one association to Origin
     @ManyToOne
-    @JoinColumn(name="origin_id")
+	@JoinColumn(name="origin_id")
 	private Origin origin;
 
     public Route() {
