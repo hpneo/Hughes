@@ -62,3 +62,33 @@ input[type=submit] {
 .column._30 {
   width: 25%;
 }
+
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+.table {
+  width: 90%;
+  margin:0 auto;
+  font-size: 15px;
+}
+.table thead,
+.table tbody tr{
+  border-bottom: solid 1px #c1d8ef;
+}
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: middle;
+}
+.table th {
+  font-weight: bold;
+  color: #383838;
+}
+.table thead th {
+  vertical-align: bottom;
+}

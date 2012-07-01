@@ -11,7 +11,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Flights</title>
+  <title>Hughes - Búsqueda de vuelos</title>
   <link rel="stylesheet" type="text/css" href="styles/layout.css" />
   <link rel="stylesheet" type="text/css" href="styles/index.css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -81,7 +81,7 @@
       <div id="map_container"></div>
       <div class="row">
         <div class="column _70">
-          <form action="flights" method="post">
+          <form action="flights" method="get">
             <p>
               <label for="flight_type_bi"><input type="radio" name="type" id="flight_type_bi" value="bi" checked="checked" /> Ida y vuelta</label>
               <label for="flight_type_one"><input type="radio" name="type" value="one" id="flight_type_one" /> Solo ida</label>

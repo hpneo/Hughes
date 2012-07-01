@@ -3,7 +3,7 @@
 <div id="header">
   <div class="wrapper">
 	  <h1>
-	    <a href="/Flights">Flights</a>
+	    <a href="/Flights">Hughes</a>
 	  </h1>
   </div>
 </div>

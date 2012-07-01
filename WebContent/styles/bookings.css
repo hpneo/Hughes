@@ -1,0 +1,5 @@
+.row.bordered {
+  border-top: solid 1px #999;
+  border-bottom: solid 1px #999;
+  padding: 5px 0;
+}

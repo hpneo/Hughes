@@ -72,4 +72,24 @@
     <servlet-name>FlightServlet</servlet-name>
     <url-pattern>/flights</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BookingServlet</display-name>
+    <servlet-name>BookingServlet</servlet-name>
+    <servlet-class>com.hughes.servlets.BookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookingServlet</servlet-name>
+    <url-pattern>/bookings</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SignInServlet</display-name>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class>com.hughes.servlets.users.SignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern>/users/sign_in</url-pattern>
+  </servlet-mapping>
 </web-app>

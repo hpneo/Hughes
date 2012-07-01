@@ -47,4 +47,68 @@ public class FlightBean {
     return query .getResultList();
   }
 
+  public static Flight get(Integer id){
+    EntityManagerFactory factory = null;
+    EntityManager entity_manager = null;
+    
+    factory = Persistence.createEntityManagerFactory("Flights");
+    entity_manager = factory.createEntityManager();
+    
+    try {
+      return entity_manager.find(Flight.class, id);
+    } catch (Exception e) {
+      return null;
+    }
+  }
+  
+  public static Collection<Flight> get(Object[] ids){
+    Collection<Flight> collection = new Vector<Flight>();
+    for(int i=0; i<ids.length; i++){
+      Integer id = Integer.parseInt(ids[i].toString());
+      
+      collection.add(get(id));
+    }
+    
+    return collection;
+  }
+  
+  public static String getOuputDate(Flight flight){
+    SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat time_format = new SimpleDateFormat("hh:mm a");
+    
+    return date_format.format(flight.getOutputDate()) + " " + time_format.format(flight.getFrequency().getOutput());
+  }
+  
+  public static String getArrivalDate(Flight flight){
+    SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat time_format = new SimpleDateFormat("hh:mm a");
+    
+    Date arrivalDate = new Date();
+    Date outputDate = getOutpuDate(flight);
+    
+    GregorianCalendar calendar = new GregorianCalendar();
+    calendar.setTime(outputDate);
+    
+    calendar.add(Calendar.MINUTE, flight.getFrequency().getDuration());
+    arrivalDate = calendar.getTime();
+    
+    return date_format.format(arrivalDate) + " " + time_format.format(arrivalDate);
+  }
+  
+  private static Date getOutpuDate(Flight flight){
+    Date outputDate = new Date();
+
+    GregorianCalendar outputCalendar = new GregorianCalendar();
+    outputCalendar.setTime(flight.getOutputDate());
+    
+    GregorianCalendar outputTimeCalendar = new GregorianCalendar();
+    outputTimeCalendar.setTime(flight.getFrequency().getOutput());
+    
+    outputCalendar.set(Calendar.HOUR_OF_DAY, outputTimeCalendar.get(Calendar.HOUR_OF_DAY));
+    outputCalendar.set(Calendar.MINUTE, outputTimeCalendar.get(Calendar.MINUTE));
+    
+    outputDate = outputCalendar.getTime();
+    
+    return outputDate;
+  }
 }
