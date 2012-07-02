@@ -6,7 +6,6 @@ import javax.servlet.http.*;
 
 import com.hughes.models.*;
 import com.hughes.beans.*;
-import com.hughes.servlets.ServletUtilities;
 
 /**
  * Servlet implementation class SignInServlet
@@ -48,11 +47,12 @@ public class SignInServlet extends HttpServlet {
   	    request.getRequestDispatcher("/sign_in.jsp").forward(request, response);
   	  }
   	  else {
-  	    Cookie user_cookie = new Cookie("current_user", signed_user.getId()+"");
+  	    Cookie user_cookie = new Cookie("current_user", String.valueOf(signed_user.getId()));
+  	    user_cookie.setValue(String.valueOf(signed_user.getId()));
+  	    user_cookie.setPath(request.getContextPath() + "/");
   	    user_cookie.setMaxAge(60*60*24*365);
   	    
   	    response.addCookie(user_cookie);
-  	    
   	    response.sendRedirect(request.getSession().getAttribute("referer").toString());
   	  }
 	}

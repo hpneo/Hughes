@@ -1,7 +1,8 @@
 body {
-	font-size: 14px;
-	font-family: Helvetica, Arial;
+	font-size: 16px;
+	font-family: Ubuntu, Helvetica, Arial;
 	margin: 0;
+	background: #fff url('http://subtlepatterns.com/patterns/chruch.png');
 }
 
 a {
@@ -11,13 +12,16 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: #5b79a9;
+}
+
+label {
+	color: #001b2e;
 }
 
 input, select, textarea {
   font-size: 14px;
   font-family: Helvetica, Arial;
-  border: solid 1px #c6d0e1;
+  border: solid 1px #bfdeec;
   padding: 3px;
   border-radius: 2px;
   background: #f4f6f9;
@@ -25,10 +29,29 @@ input, select, textarea {
 
 input[type=submit] {
 	display: block;
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: bold;
 	padding: 6px 18px;
-	background: #c6d0e1;
+	
+	background: #3778b4;
+  background-image: linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+  background-image: -o-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+  background-image: -moz-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+  background-image: -webkit-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+  background-image: -ms-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+  
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.2, rgb(55,120,180)),
+    color-stop(0.8, rgb(62,133,188))
+  );
+  
+  box-shadow: 0 0 10px #3e85bc;
+  border: solid 1px #0069AA;
+  color: #dfeef5;
+  text-shadow: 1px -1px 1px #005199;
 }
 
 .unstyled {
@@ -91,4 +114,66 @@ table {
 }
 .table thead th {
   vertical-align: bottom;
+}
+
+#header {
+	padding: 5px 0;
+	background: #3778b4;
+  background-image: linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+	background-image: -o-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+	background-image: -moz-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+	background-image: -webkit-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+	background-image: -ms-linear-gradient(bottom, rgb(55,120,180) 20%, rgb(62,133,188) 80%);
+	
+	background-image: -webkit-gradient(
+	  linear,
+	  left bottom,
+	  left top,
+	  color-stop(0.2, rgb(55,120,180)),
+	  color-stop(0.8, rgb(62,133,188))
+	);
+  border-top: solid 1px #3e85bc;
+  border-bottom: solid 1px #005199;
+  box-shadow: 0 0 10px #005199;
+}
+
+#header a {
+	color: #dfeef5;
+  text-shadow: 1px -1px 1px #005199;
+}
+#header a:hover {
+	text-decoration: none;
+  color: #b5e2ec;
+}
+
+#header h1,
+#header ul {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+}
+
+#header ul {
+	text-align: right;
+	list-style: none;
+	margin: 0 10px;
+	padding: 0;
+	font-size: 16px;
+	float: right;
+	line-height: 41px;
+}
+
+#header ul li {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: bold;
+}
+
+#body {
+	padding: 20px 0;
+}
+
+#body .wrapper {
+	background: #fafafa;
+  box-shadow: 0 0 20px #ccc;
 }

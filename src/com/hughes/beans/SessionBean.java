@@ -12,9 +12,6 @@ public class SessionBean {
 
   public static User signIn(String email, String password) {
     User signed_user = null;
-
-    System.out.println(encryptPassword(password));
-    System.out.println(encryptPassword(password).equals("f3536a06999829691647a715c529166d"));
     
     if(UserBean.exists(email)){
       User user = UserBean.getByEmail(email);

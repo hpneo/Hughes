@@ -3,3 +3,7 @@
   border-bottom: solid 1px #999;
   padding: 5px 0;
 }
+
+#body .wrapper {
+  padding: 10px;
+}

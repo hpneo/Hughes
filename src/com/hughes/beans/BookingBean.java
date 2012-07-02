@@ -1,7 +1,5 @@
 package com.hughes.beans;
 
-import java.util.*;
-
 import javax.persistence.*;
 
 import com.hughes.models.*;

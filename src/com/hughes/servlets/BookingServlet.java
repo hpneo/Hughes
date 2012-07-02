@@ -57,16 +57,21 @@ public class BookingServlet extends HttpServlet {
 	        
 	        Flight[] flight_array = flights.toArray(new Flight[0]);
 	        
+	        String current_user_id = ServletUtilities.getCookieValue(request.getCookies(), "current_user");
+	        
+	        User current_user = UserBean.get(Integer.parseInt(current_user_id));
+	        
 	        for(int i=0; i< flight_passenger_names.length; i++){
 	          Flight flight = flight_array[i];
 	          Booking booking = new Booking();
 	          booking.setFlight(flight);
+	          booking.setUser(current_user);
 	          booking.setPassengerName(flight_passenger_names[i]);
 	          
 	          BookingBean.save(booking);
 	        }
 	        
-	        response.sendRedirect("/panel/bookings");
+	        response.sendRedirect(request.getContextPath() + "/panel/bookings");
 	      }
 	    }
 	  }

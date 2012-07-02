@@ -54,15 +54,6 @@
     <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
   </listener>
   <servlet>
-    <servlet-name>Faces Servlet</servlet-name>
-    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <description>Find available flights according searching parameters</description>
     <display-name>FlightServlet</display-name>
     <servlet-name>FlightServlet</servlet-name>
@@ -91,5 +82,34 @@
   <servlet-mapping>
     <servlet-name>SignInServlet</servlet-name>
     <url-pattern>/users/sign_in</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserBookingServlet</display-name>
+    <servlet-name>UserBookingServlet</servlet-name>
+    <servlet-class>com.hughes.servlets.users.BookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserBookingServlet</servlet-name>
+    <url-pattern>/panel/bookings</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileServlet</display-name>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>com.hughes.servlets.users.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/panel/edit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
 </web-app>

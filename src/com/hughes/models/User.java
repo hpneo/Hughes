@@ -2,7 +2,7 @@ package com.hughes.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 
 /**
@@ -32,7 +32,7 @@ public class User implements Serializable {
 
 	//bi-directional many-to-one association to Booking
 	@OneToMany(mappedBy="user")
-	private Set<Booking> bookings;
+	private List<Booking> bookings;
 
     public User() {
     }
@@ -85,11 +85,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public Set<Booking> getBookings() {
+	public List<Booking> getBookings() {
 		return this.bookings;
 	}
 
-	public void setBookings(Set<Booking> bookings) {
+	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
 	}
 	

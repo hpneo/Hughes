@@ -19,3 +19,7 @@ input[type=submit] {
 	display: block;
 	margin: 5px auto;
 }
+
+#body .wrapper {
+  padding: 10px;
+}

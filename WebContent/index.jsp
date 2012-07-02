@@ -14,13 +14,31 @@
   <title>Hughes - Búsqueda de vuelos</title>
   <link rel="stylesheet" type="text/css" href="styles/layout.css" />
   <link rel="stylesheet" type="text/css" href="styles/index.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="styles/datepicker.css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=es"></script>
   <script type="text/javascript" src="scripts/gmaps.js"></script>
+  <script type="text/javascript" src="scripts/datepicker.js"></script>
   <script type="text/javascript">
     var map;
     var route;
     $(document).ready(function(){
+   	  $('#flight_output_date').DatePicker({
+   		  date: new Date(),
+        format: "d/m/Y",
+        onChange: function(formated, dates){
+        	$('#flight_output_date').val(formated);
+        	$('#flight_output_date').DatePickerHide();
+        }
+   	  });
+   	  $('#flight_arrival_date').DatePicker({
+   		  date: new Date(),
+   		  format: "d/m/Y",
+   		  onChange: function(formated, dates){
+          $('#flight_arrival_date').val(formated);
+          $('#flight_arrival_date').DatePickerHide();
+        }
+   	  });
     	map = new GMaps({
     		div: '#map_container',
     		lat: 14.859850400601037,
@@ -142,10 +160,10 @@
         <div class="column _30" id="user_links">
           <ul class="unstyled">
             <li>
-              <a href="#">Mis reservas anteriores</a>
+              <a href="<%= application.getContextPath() %>/panel/bookings">Mis reservas anteriores</a>
             </li>
             <li>
-              <a href="#">Actualizar datos personales</a>
+              <a href="<%= application.getContextPath() %>/panel/edit">Actualizar datos personales</a>
             </li>
           </ul>
         </div>

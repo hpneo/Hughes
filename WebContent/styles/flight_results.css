@@ -2,3 +2,7 @@ small {
 	color: #666;
 	font-size: 11px;
 }
+
+#body .wrapper {
+  padding: 10px;
+}
