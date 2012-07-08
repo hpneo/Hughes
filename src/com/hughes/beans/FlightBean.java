@@ -111,4 +111,28 @@ public class FlightBean {
     
     return outputDate;
   }
+  
+  public static boolean update(Flight flight){
+    EntityManagerFactory factory = null;
+    EntityManager entity_manager = null;
+    
+    factory = Persistence.createEntityManagerFactory("Flights");
+    entity_manager = factory.createEntityManager();
+    
+    try {
+      Flight flight_to_update = entity_manager.find(Flight.class, flight.getId());
+      
+      entity_manager.getTransaction().begin();
+      flight_to_update.setCode(flight.getCode());
+      flight_to_update.setAvailableSeats(flight.getAvailableSeats());
+      flight_to_update.setFlightClass(flight.getFlightClass());
+      flight_to_update.setOutputDate(flight.getOutputDate());
+      flight_to_update.setPrice(flight.getPrice());
+      entity_manager.getTransaction().commit();
+      
+      return true;
+    } catch (Exception e) {
+      return false;
+    }
+  }
 }
