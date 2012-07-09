@@ -2,7 +2,7 @@ package com.hughes.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 
 /**
@@ -20,7 +20,7 @@ public class Route implements Serializable {
 
 	//bi-directional many-to-one association to Frequency
 	@OneToMany(mappedBy="route")
-	private Set<Frequency> frequencies;
+	private List<Frequency> frequencies;
 
 	//bi-directional many-to-one association to Destination
     @ManyToOne
@@ -43,11 +43,11 @@ public class Route implements Serializable {
 		this.id = id;
 	}
 
-	public Set<Frequency> getFrequencies() {
+	public List<Frequency> getFrequencies() {
 		return this.frequencies;
 	}
 
-	public void setFrequencies(Set<Frequency> frequencies) {
+	public void setFrequencies(List<Frequency> frequencies) {
 		this.frequencies = frequencies;
 	}
 	

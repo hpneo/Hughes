@@ -194,4 +194,14 @@
   <security-role>
     <role-name>admin</role-name>
   </security-role>
+  <servlet>
+    <description></description>
+    <display-name>AdminBookingServlet</display-name>
+    <servlet-name>AdminBookingServlet</servlet-name>
+    <servlet-class>com.hughes.servlets.admin.BookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminBookingServlet</servlet-name>
+    <url-pattern>/admin/bookings</url-pattern>
+  </servlet-mapping>
 </web-app>

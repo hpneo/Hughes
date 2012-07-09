@@ -3,7 +3,7 @@ package com.hughes.models;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Time;
-import java.util.Set;
+import java.util.List;
 
 
 /**
@@ -27,7 +27,7 @@ public class Frequency implements Serializable {
 
 	//bi-directional many-to-one association to Flight
 	@OneToMany(mappedBy="frequency")
-	private Set<Flight> flights;
+	private List<Flight> flights;
 
 	//bi-directional one-to-one association to Aircraft
 	@OneToOne
@@ -74,11 +74,11 @@ public class Frequency implements Serializable {
 		this.output = output;
 	}
 
-	public Set<Flight> getFlights() {
+	public List<Flight> getFlights() {
 		return this.flights;
 	}
 
-	public void setFlights(Set<Flight> flights) {
+	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
 	}
 	

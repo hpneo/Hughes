@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 
 /**
@@ -36,7 +36,7 @@ public class Flight implements Serializable {
 
 	//bi-directional many-to-one association to Booking
 	@OneToMany(mappedBy="flight")
-	private Set<Booking> bookings;
+	private List<Booking> bookings;
 
 	//bi-directional many-to-one association to Frequency
     @ManyToOne
@@ -94,11 +94,11 @@ public class Flight implements Serializable {
 		this.price = price;
 	}
 
-	public Set<Booking> getBookings() {
+	public List<Booking> getBookings() {
 		return this.bookings;
 	}
 
-	public void setBookings(Set<Booking> bookings) {
+	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
 	}
 	

@@ -1,69 +1,75 @@
 package com.hughes.beans;
 
-import java.util.*;
+import java.util.List;
+
 import javax.persistence.*;
 
 import com.hughes.models.*;
 
-public class OriginBean {
-
-  @SuppressWarnings("unchecked")
-  public static List<Origin> all(){
+public class FrequencyBean {
+  
+  public static List<Frequency> all(){
     EntityManagerFactory factory = null;
     EntityManager entity_manager = null;
-
+    
     factory = Persistence.createEntityManagerFactory("Flights");
     entity_manager = factory.createEntityManager();
-
-    return (List<Origin>) entity_manager.createQuery("SELECT o FROM Origin o").getResultList();
+    
+    return entity_manager.createQuery("SELECT f FROM Frequency f", Frequency.class).getResultList();
   }
-
-  public static Origin get(Integer id){
+  
+  public static Frequency get(Integer id) {
     EntityManagerFactory factory = null;
     EntityManager entity_manager = null;
-
+    
     factory = Persistence.createEntityManagerFactory("Flights");
     entity_manager = factory.createEntityManager();
-
+    
     try {
-      return entity_manager.find(Origin.class, id);
+      return entity_manager.find(Frequency.class, id);
     } catch (Exception e) {
       return null;
     }
   }
-
-  public static void save(Origin origin){
+  
+  public static String getIdentifier(Frequency frequency){
+    return frequency.getRoute().getOrigin().getName() + " - " + 
+        frequency.getRoute().getDestination().getName() + 
+        " (" + DateBean.formatTime(frequency.getOutput()) + " - " + DateBean.formatTime(frequency.getArrival()) + ")";
+  }
+  
+  public static void save(Frequency frequency){
     EntityManagerFactory factory = null;
     EntityManager entity_manager = null;
-
+    
     factory = Persistence.createEntityManagerFactory("Flights");
     entity_manager = factory.createEntityManager();
 
     entity_manager.getTransaction().begin();
-    entity_manager.persist(origin);
+    entity_manager.persist(frequency);
     entity_manager.getTransaction().commit();
   }
-
-  public static boolean update(Origin origin){
+  
+  public static boolean update(Frequency frequency){
     EntityManagerFactory factory = null;
     EntityManager entity_manager = null;
-
+    
     factory = Persistence.createEntityManagerFactory("Flights");
     entity_manager = factory.createEntityManager();
-
+    
     try {
-      Origin origin_to_update = entity_manager.find(Origin.class, origin.getId());
-
+      Frequency frequency_to_update = entity_manager.find(Frequency.class, frequency.getId());
+      
       entity_manager.getTransaction().begin();
-      origin_to_update.setName(origin.getName());
-      origin_to_update.setLat(origin.getLat());
-      origin_to_update.setLng(origin.getLng());
+      frequency_to_update.setDuration(frequency.getDuration());
+      frequency_to_update.setArrival(frequency.getArrival());
+      frequency_to_update.setOutput(frequency.getOutput());
       entity_manager.getTransaction().commit();
-
+      
       return true;
     } catch (Exception e) {
       return false;
     }
   }
-
+  
 }

@@ -44,9 +44,19 @@ public class FlightBean {
     
     TypedQuery<Flight> query = entity_manager.createQuery("SELECT f FROM Flight f INNER JOIN f.frequency fr INNER JOIN fr.route r WHERE " + conditions, Flight.class);
     
-    return query .getResultList();
+    return query.getResultList();
   }
 
+  public static List<Flight> all(){
+    EntityManagerFactory factory = null;
+    EntityManager entity_manager = null;
+    
+    factory = Persistence.createEntityManagerFactory("Flights");
+    entity_manager = factory.createEntityManager();
+    
+    return entity_manager.createQuery("SELECT f FROM Flight f", Flight.class).getResultList();
+  }
+  
   public static Flight get(Integer id){
     EntityManagerFactory factory = null;
     EntityManager entity_manager = null;
@@ -73,10 +83,7 @@ public class FlightBean {
   }
   
   public static String getOuputDate(Flight flight){
-    SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy");
-    SimpleDateFormat time_format = new SimpleDateFormat("hh:mm a");
-    
-    return date_format.format(flight.getOutputDate()) + " " + time_format.format(flight.getFrequency().getOutput());
+    return DateBean.formatDate(flight.getOutputDate()) + " " + DateBean.formatTime(flight.getFrequency().getOutput());
   }
   
   public static String getArrivalDate(Flight flight){
@@ -110,6 +117,18 @@ public class FlightBean {
     outputDate = outputCalendar.getTime();
     
     return outputDate;
+  }
+  
+  public static void save(Flight flight){
+    EntityManagerFactory factory = null;
+    EntityManager entity_manager = null;
+    
+    factory = Persistence.createEntityManagerFactory("Flights");
+    entity_manager = factory.createEntityManager();
+
+    entity_manager.getTransaction().begin();
+    entity_manager.persist(flight);
+    entity_manager.getTransaction().commit();
   }
   
   public static boolean update(Flight flight){
